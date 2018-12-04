@@ -1,0 +1,53 @@
+::ng-deep .mat-autocomplete-panel {
+    top: -20px !important;
+    overflow-x: hidden !important;
+    width: 102% !important;
+}
+
+.box-wrapper {
+    width: 63.5%;
+}
+
+.box {
+    width: 94%;
+    padding: 10px 15px;
+    border: 1px solid #dadada;
+}
+
+.search-result {
+    width: auto;
+    background-color: #eee;
+    border: 3px solid #dadada;
+    position: relative;
+    left: 20px;
+}
+
+.wrapper {
+    grid-column-start: 1;
+}
+
+.temp {
+    height: 225px;
+    padding: 12px 10px;
+    border: 2px solid #dadada;
+    list-style: none;
+    display: inline-block;
+}
+
+.item {
+    white-space: pre;
+}
+
+.weather {
+    font-weight: bold;
+}
+
+.icon {
+    position: relative;
+    left: 20px;
+    height: 70px;
+}
+
+.text {
+    color: #00f;
+}

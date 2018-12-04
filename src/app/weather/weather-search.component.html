@@ -1,0 +1,23 @@
+<form class="search-form">
+  <mat-form-field class="example-full-width box-wrapper">
+    <input type="text" class="box" aria-label="Number" matInput [formControl]="searchTerm" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option class="search-result" *ngFor="let item of searchResult" [value]="item" (click)="show(item)">
+        {{ item }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<div class="wrapper" *ngIf="showWeatherForecast">
+  <ul class="temp" *ngFor="let d of foreCastResult">
+    <li class="item">
+      <span class="text">18th November</span> <br/>
+      <img src={{d.icon}} class="icon" /> <br/>
+      <span class="text">{{d.description}}</span> <br/>
+      <span class="weather">humidity :</span> {{d.humidity}}% <br/>
+      <span class="weather">temprature :</span> {{d.temp}}'C <br/>
+      <span class="weather">pressure :</span> {{d.pressure}} <br/>
+      <span class="weather">speed :</span> {{d.speed}}Km/h
+     </li>
+  </ul>
+</div>
