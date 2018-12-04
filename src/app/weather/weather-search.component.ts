@@ -15,10 +15,10 @@ import { WeatherService } from './weather-service';
 
 export class WeatherSearchComponent {
 
-    private searchTerm: FormControl = new FormControl();
-    private searchResult = [];
-    private foreCastResult: [];
-    private showWeatherForecast: boolean = false;
+    searchTerm: FormControl = new FormControl();
+    searchResult = [];
+    foreCastResult: [];
+    showWeatherForecast: boolean = false;
     private selectedItem: string = '';
 
     constructor(private _weatherService: WeatherService) {
