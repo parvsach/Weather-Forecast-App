@@ -46,7 +46,7 @@
               "buildOptimizer": true,
               "budgets": [
                 {
-                  "type": "initial",
+                  "type": "bundle",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
