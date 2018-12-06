@@ -12,3 +12,5 @@ Steps to run:
 
 2. Run the code using command:
    ng serve
+
+3. Browse to http://localhost:4200 to search city name and get the forecast details for next five days.
