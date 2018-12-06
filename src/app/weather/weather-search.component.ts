@@ -17,7 +17,7 @@ export class WeatherSearchComponent {
 
     searchTerm: FormControl = new FormControl();
     searchResult = [];
-    foreCastResult: [];
+    foreCastResult: ForeCastData[];
     showWeatherForecast: boolean = false;
     private selectedItem: string = '';
 
@@ -33,9 +33,6 @@ export class WeatherSearchComponent {
                     }).map(item => item.name + ', ' + item.country);
 
                     this.searchResult = filteredData;
-                    if (!this.selectedItem) {
-                        this.showWeatherForecast = false;
-                    }
                 } else {
                     this.searchResult = [];
                     this.showWeatherForecast = false;
@@ -62,17 +59,20 @@ export class WeatherSearchComponent {
 
     private _formatWeatherData(data) {
         const tiles = this._groupByDays(data);
-        const forecastTiles = Object.keys(tiles).length > 5 ? Object.entries(tiles).slice(0, 5) : tiles;
-        this.foreCastResult = forecastTiles.map((item, i) => {
+        let forecastTiles = Object.keys(tiles).length > 5 ? Object.entries(tiles).slice(0, 5) : tiles;
+        let result = Object.entries(forecastTiles).map((item, i) => {
             return <ForeCastData>{
-                icon: this._getIcon(item[1]),
-                humidity: this._getHumidity(item[1]),
-                pressure: this._getPressure(item[1]),
-                temp: this._getTemprature(item[1]),
-                description: this._getDescription(item[1]),
-                speed: this._getSpeed(item[1])
+                icon: this._getIcon(item[1][1]),
+                humidity: this._getHumidity(item[1][1]),
+                pressure: this._getPressure(item[1][1]),
+                temp: this._getTemprature(item[1][1]),
+                description: this._getDescription(item[1][1]),
+                speed: this._getSpeed(item[1][1])
             }
         });
+        if (result) {
+            this.foreCastResult = result;
+        }
     }
 
     _getIcon = data => `https://openweathermap.org/img/w/${data[0].weather[0].icon}.png`;
