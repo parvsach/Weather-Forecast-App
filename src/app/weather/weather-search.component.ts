@@ -62,12 +62,12 @@ export class WeatherSearchComponent {
         let forecastTiles = Object.keys(tiles).length > 5 ? Object.entries(tiles).slice(0, 5) : tiles;
         let result = Object.entries(forecastTiles).map((item, i) => {
             return <ForeCastData>{
-                icon: this._getIcon(item[1][1]),
-                humidity: this._getHumidity(item[1][1]),
-                pressure: this._getPressure(item[1][1]),
-                temp: this._getTemprature(item[1][1]),
-                description: this._getDescription(item[1][1]),
-                speed: this._getSpeed(item[1][1])
+                icon: this._getIcon(item[1]),
+                humidity: this._getHumidity(item[1]),
+                pressure: this._getPressure(item[1]),
+                temp: this._getTemprature(item[1]),
+                description: this._getDescription(item[1]),
+                speed: this._getSpeed(item[1])
             }
         });
         if (result) {
